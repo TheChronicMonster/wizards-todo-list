@@ -16,7 +16,7 @@ contract ToDo {
 
   event TaskCreated(uint, uint, string, string, bool);
 
-  function ToDo() public {
+  constructor() public {
     lastTaskId = 0;
   }
 
@@ -24,14 +24,14 @@ contract ToDo {
     lastTaskId++;
     tasks[lastTaskId] = Task(lastTaskId, now, _content, _author, false);
     taskIds.push(lastTaskId);
-    TaskCreated(lastTaskId, now, _content, _author, false);
+    emit TaskCreated(lastTaskId, now, _content, _author, false);
   }
 
-  function getTasksIds() public constant returns(uint[]) {
+  function getTasksIds() public view returns(uint[]) {
     return taskIds;
   }
 
-  function getTask(uint id) taskExists(id) public constant
+  function getTask(uint id) taskExists(id) public view
     returns (
       uint,
       uint,
