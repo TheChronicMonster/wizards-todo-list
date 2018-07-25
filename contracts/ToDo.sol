@@ -16,7 +16,7 @@ contract ToDo {
 
   event TaskCreated(uint, uint, string, string, bool);
 
-  function ToDo() public {
+  constructor() public {
     lastTaskId = 0;
   }
 
