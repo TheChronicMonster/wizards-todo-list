@@ -22,7 +22,7 @@ contract ToDo {
 
   function createTask(string _content, string _author) public {
     lastTaskId++;
-    tasks[lastTaskId] = Task(lastTaskId, now, _content, _author, false)
+    tasks[lastTaskId] = Task(lastTaskId, now, _content, _author, false);
     taskIds.push(lastTaskId);
     TaskCreated(lastTaskId, now, _content, _author, false);
   }
